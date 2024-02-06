@@ -4,6 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
+import time
 
 openai_api_key = "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"
 
@@ -33,15 +34,23 @@ def query_pdf(query, retriever):
 
 def main():
     filename = input("Enter the name of the document (.pdf or .txt):\n")
+    start_time = time.time()
     docs = load_document(filename)
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     vectorstore = FAISS.from_documents(docs, embeddings)
     vectorstore.save_local("faiss_index_constitution")
     persisted_vectorstore = FAISS.load_local("faiss_index_constitution", embeddings)
 
+    end_time = time.time()
+
+    print("Time it took to process and load vectors: " + str(end_time-start_time))
+
     query = input("Type in your query (type 'exit' to quit):\n")
     while query != "exit":
+        st = time.time()
         query_pdf(query, persisted_vectorstore.as_retriever())
+        end = time.time()
+        print("Time it took to query with vector store: " + str(end-st))
         query = input("Type in your query (type 'exit' to quit):\n")
 
 
