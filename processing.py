@@ -2,6 +2,7 @@ from langchain.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 import time
@@ -33,13 +34,19 @@ def query_pdf(query, retriever):
 
 
 def main():
-    filename = input("Enter the name of the document (.pdf or .txt):\n")
+    filenames = input("Enter the names of the documents (.pdf or .txt), separated by commas:\n").split(',')
     start_time = time.time()
-    docs = load_document(filename)
+    
+    all_docs = []
+    for filename in filenames:
+        filename = filename.strip()  # remove leading/trailing whitespace
+        docs = load_document(filename)
+        all_docs.extend(docs)
+    
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-    vectorstore = FAISS.from_documents(docs, embeddings)
-    vectorstore.save_local("faiss_index_constitution")
-    persisted_vectorstore = FAISS.load_local("faiss_index_constitution", embeddings)
+    vectorstore = FAISS.from_documents(all_docs, embeddings)
+    vectorstore.save_local("faiss_index")
+    persisted_vectorstore = FAISS.load_local("faiss_index", embeddings)
 
     end_time = time.time()
 
@@ -52,7 +59,6 @@ def main():
         end = time.time()
         print("Time it took to query with vector store: " + str(end-st))
         query = input("Type in your query (type 'exit' to quit):\n")
-
 
 if __name__ == "__main__":
     main()
