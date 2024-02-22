@@ -25,10 +25,17 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20
 splits = text_splitter.split_documents(docs)
 vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
 
-# Retrieve and generate using the relevant snippets of the blog.
+# Retrieve and generate using the relevant snippets of the text
+# simple retriever
 retriever = vectorstore.as_retriever()
 prompt = hub.pull("rlm/rag-prompt")
 llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature=0)
+
+# multiquery retriever, appears to have better results
+from langchain.retrievers.multi_query import MultiQueryRetriever
+retriever = MultiQueryRetriever.from_llm(
+    retriever=vectorstore.as_retriever(), llm=llm
+)
 
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
@@ -44,15 +51,17 @@ rag_chain_from_docs = (
 )
 
 rag_chain_with_source = RunnableParallel(
-    {"context": retriever, "question": RunnablePassthrough()}
+    {"context": retriever, "question": RunnablePassthrough()} # change retriever as necessary
 ).assign(answer=rag_chain_from_docs)
 
 # enter query
-result = rag_chain_with_source.invoke("Who was affected by PFAS and to what extent?")
+result = rag_chain_with_source.invoke("Who were the plaintiffs and who were the defendents?")
+# display answer
 print("\n############### RESPONSE ###############")
 print(result["answer"])
-# fetch the 3 sources
-for i in range(3):
+# fetch all sources
+for i in range(len(result["context"])):
     print(f"\n############### SOURCE #{i + 1} ###############")
-    print(result["context"][i].page_content)
-    print("\n" + result["context"][i].metadata['source'])
+    print(result["context"][i].metadata['source'])
+    print("\n" + result["context"][i].page_content)
+
