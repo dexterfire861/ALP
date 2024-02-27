@@ -71,25 +71,27 @@ for subdir, dirs, files in os.walk(reldir):
 
         # ask questions
         print("querying documents...")
+        # print answer to a text document
+        filename = "output/" + curr_dir + ".txt"
+        file = open(filename, "w")
         for question in questions:
             result = rag_chain_with_source.invoke(question)
 
-            # print answer to a text document
-            filename = "output/" + curr_dir + ".txt"
-            file = open(filename, "w")
-            answer = "############### RESPONSE ###############\n" + result["answer"]
+            query = "\n############### QUESTION ###############\n" + question
+            answer = "\n############### RESPONSE ###############\n" + result["answer"]
             sources = ""
             for j in range(len(result["context"])):
                 sources += f"\n############### SOURCE #{j + 1} ###############\n"
                 sources += result["context"][j].metadata['source'] + "\n"
                 sources += result["context"][j].page_content + "\n"
 
+            file.write(query)
             file.write(answer)
             file.write(sources)
-            file.close()
-
             # print(answer)
             # print(sources)
+
+        file.close()
 
         # clear chroma database
         # delete this line to query against ALL documents
