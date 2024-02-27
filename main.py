@@ -1,66 +1,67 @@
-import fitz  # PyMuPDF
-from sentence_transformers import SentenceTransformer, util
-from openai import OpenAI
-import requests
-import time
+# implementation from https://python.langchain.com/docs/use_cases/question_answering/sources
 
+import bs4
+from langchain import hub
+from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader, PyPDFDirectoryLoader, TextLoader
+from langchain_community.vectorstores import Chroma
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
-# Set up OpenAI API credentials
+openai_api_key = "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"
 
-model = SentenceTransformer('sentence-transformers/multi-qa-mpnet-base-dot-v1')
+# enter folder name
+path = "City of Stuart v. 3M"
+loader = PyPDFDirectoryLoader(path)
 
-def read_pdf(file_path):
-    # Open the PDF file
-    pdf_document = fitz.open(file_path)
+documents = loader.load()
 
-    information = []
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
+docs = text_splitter.split_documents(documents=documents)
+docs = loader.load()
 
-    # Iterate through pages
-    for page_num in range(pdf_document.page_count):
-        # Get the page
-        page = pdf_document[page_num]
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
 
-        # Extract text from the page
-        text = page.get_text()
+# Retrieve and generate using the relevant snippets of the text
+# simple retriever
+retriever = vectorstore.as_retriever()
+prompt = hub.pull("rlm/rag-prompt")
+llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature=0)
 
-        information.append(text)
+# multiquery retriever, appears to have better results
+from langchain.retrievers.multi_query import MultiQueryRetriever
+retriever = MultiQueryRetriever.from_llm(
+    retriever=vectorstore.as_retriever(), llm=llm
+)
 
-    pdf_document.close()
-    return information
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
 
-# Replace 'your_pdf_file.pdf' with the actual path to your PDF file
-pdf_file_path = 'City of Stuart v. 3M Lawsuit.pdf'
-start_time = time.time()
-information = read_pdf(pdf_file_path)
+# doing source retrieval
+from langchain_core.runnables import RunnableParallel
 
-key = "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"
+rag_chain_from_docs = (
+    RunnablePassthrough.assign(context=(lambda x: format_docs(x["context"])))
+    | prompt
+    | llm
+    | StrOutputParser()
+)
 
-client = OpenAI(api_key=key)
+rag_chain_with_source = RunnableParallel(
+    {"context": retriever, "question": RunnablePassthrough()} # change retriever as necessary
+).assign(answer=rag_chain_from_docs)
 
-
-query = "Why did the City of Stuart file a lawsuit against 3M?"
-
-query_emb = model.encode(query)
-information_emb = model.encode(information)
-
-scores = util.dot_score(query_emb, information_emb)[0].cpu().tolist()
-
-doc_score_pairs = list(zip(information, scores))
-
-doc_score_pairs = sorted(doc_score_pairs, key=lambda x: x[1], reverse=True)
-
-for doc, score in doc_score_pairs:
-    print(score, doc)
-
-end_time = time.time()
-
-print(f"Execution time of processing function: {end_time - start_time} seconds")
-
-
-
-
-
-
-
-
+# enter query
+result = rag_chain_with_source.invoke("Who were the plaintiffs and who were the defendents?")
+# display answer
+print("\n############### RESPONSE ###############")
+print(result["answer"])
+# fetch all sources
+for i in range(len(result["context"])):
+    print(f"\n############### SOURCE #{i + 1} ###############")
+    print(result["context"][i].metadata['source'])
+    print("\n" + result["context"][i].page_content)
 

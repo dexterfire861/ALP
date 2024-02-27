@@ -1,5 +1,6 @@
 # implementation from https://python.langchain.com/docs/use_cases/question_answering/sources
 
+import os
 import bs4
 from langchain import hub
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
@@ -11,48 +12,87 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 openai_api_key = "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"
 
-# enter folder name
-path = "City of Stuart v. 3M"
-loader = PyPDFDirectoryLoader(path)
+# enter questions here
+questions = [
+    "Who were the plaintiffs and who were the defendents?"
+]
 
-documents = loader.load()
+# iterate through each folder in case_files
+reldir = './case_files'
+i = 0
+for subdir, dirs, files in os.walk(reldir):
+    # dont want parent dir
+    # first 5 subdirs
+    if i != 0 and i < 6:
+        # get subdir path
+        path = os.path.join(subdir)
+        # name of subdir        
+        curr_dir = path[13:]
+        loader = PyPDFDirectoryLoader(path)
 
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
-docs = text_splitter.split_documents(documents=documents)
-docs = loader.load()
+        # load documents
+        print(f"\nloading documents from {curr_dir}...")
+        documents = loader.load()
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-splits = text_splitter.split_documents(docs)
-vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
+        # split documents and store chunks
+        print("spliting documents...")
+        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
+        docs = text_splitter.split_documents(documents=documents)
+        docs = loader.load()
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        splits = text_splitter.split_documents(docs)
+        vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
 
-# Retrieve and generate using the relevant snippets of the blog.
-retriever = vectorstore.as_retriever()
-prompt = hub.pull("rlm/rag-prompt")
-llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature=0)
+        # Retrieve and generate using the relevant snippets of the text
+        # simple retriever
+        retriever = vectorstore.as_retriever()
+        prompt = hub.pull("rlm/rag-prompt")
+        llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature=0)
 
-def format_docs(docs):
-    return "\n\n".join(doc.page_content for doc in docs)
+        # multiquery retriever, appears to have better results
+        from langchain.retrievers.multi_query import MultiQueryRetriever
+        retriever = MultiQueryRetriever.from_llm(
+            retriever=vectorstore.as_retriever(), llm=llm
+        )
+        def format_docs(docs):
+            return "\n\n".join(doc.page_content for doc in docs)
 
-# doing source retrieval
-from langchain_core.runnables import RunnableParallel
+        # doing source retrieval
+        from langchain_core.runnables import RunnableParallel
+        rag_chain_from_docs = (
+            RunnablePassthrough.assign(context=(lambda x: format_docs(x["context"])))
+            | prompt
+            | llm
+            | StrOutputParser()
+        )
+        rag_chain_with_source = RunnableParallel(
+            {"context": retriever, "question": RunnablePassthrough()} # change retriever as necessary
+        ).assign(answer=rag_chain_from_docs)
 
-rag_chain_from_docs = (
-    RunnablePassthrough.assign(context=(lambda x: format_docs(x["context"])))
-    | prompt
-    | llm
-    | StrOutputParser()
-)
+        # ask questions
+        print("querying documents...")
+        for question in questions:
+            result = rag_chain_with_source.invoke(question)
 
-rag_chain_with_source = RunnableParallel(
-    {"context": retriever, "question": RunnablePassthrough()}
-).assign(answer=rag_chain_from_docs)
+            # print answer to a text document
+            filename = "output/" + curr_dir + ".txt"
+            file = open(filename, "w")
+            answer = "############### RESPONSE ###############\n" + result["answer"]
+            sources = ""
+            for j in range(len(result["context"])):
+                sources += f"\n############### SOURCE #{j + 1} ###############\n"
+                sources += result["context"][j].metadata['source'] + "\n"
+                sources += result["context"][j].page_content + "\n"
 
-# enter query
-result = rag_chain_with_source.invoke("Who was affected by PFAS and to what extent?")
-print("\n############### RESPONSE ###############")
-print(result["answer"])
-# fetch the 3 sources
-for i in range(3):
-    print(f"\n############### SOURCE #{i + 1} ###############")
-    print(result["context"][i].page_content)
-    print("\n" + result["context"][i].metadata['source'])
+            file.write(answer)
+            file.write(sources)
+            file.close()
+
+            # print(answer)
+            # print(sources)
+
+        # clear chroma database
+        # delete this line to query against ALL documents
+        vectorstore.delete_collection()
+
+    i += 1
