@@ -14,7 +14,21 @@ openai_api_key = "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"
 
 # enter questions here
 questions = [
-    "Who were the plaintiffs and who were the defendents?"
+    "What were the costs of mitigating PFAs exposure? (environmental remediation, healthcare costs)?",
+    "When were the plaintiffs exposed to PFAs?,"
+    "What were the costs of mitigating PFAs exposure? We are looking for a numeric dollar value that might include costs of sampling, environmental remediation, healthcare, or any other mentioned costs plaintiffs have encountered due to PFAs exposure.",
+    "What were the levels of PFAs found? This would be a value indicating the PFAs concentration found in water bodies, in blood, etc. (e.g. 80 ppt)",
+    "What is the size of the population at risk for PFAs contamination? For instance, if a drinking water system was contaminated with PFAs, we want to know the number of people that water system serves.",
+    "Who are the plaintiffs and the defendants?",
+    "How were the plaintiffs exposed to PFAs? We want to know the exact pathway through which the plaintiff encountered PFAs. For instance, this might be through pathways such as product manufacturing, product use, or a contaminated drinking water supply.",
+    "What were the health impacts of PFAs contamination? We are looking for information regarding any bodily/genetic effects PFAS had on the plaintiffs. This may include cancers, diseases, or other human health risks.",
+    "What were the environmental impacts of PFAs contamination? This might include contamination of groundwater, soils, surface water, etc.",
+    "Any scientific evidence presented regarding the persistence, bioaccumulation, toxicological or any other damaging effects on PFAs?",
+    "What are the geographical boundaries of PFAs contamination?",
+    "What were the compensations the plaintiffs asked for?",
+    "Did 3M and the other defendants conceal the dangers of PFAS from the government and public?",
+    "Does this case involve aqueous film-forming foam (AFFF)?",
+    "Was the case settled?"
 ]
 
 # iterate through each folder in case_files
