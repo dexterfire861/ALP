@@ -1,10 +1,9 @@
-from langchain.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-from langchain.llms import OpenAI
+from langchain_openai import OpenAI
 import time
 
 openai_api_key = "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"
@@ -29,12 +28,13 @@ def load_document(filename):
 def query_pdf(query, retriever):
     qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key),
                                      chain_type="stuff", retriever=retriever)
-    result = qa.run(query)
-    print(result)
+    result = qa.invoke(query)
+    print(f"\n{result['result']}")
 
 
 def main():
-    filenames = input("Enter the names of the documents (.pdf or .txt), separated by commas:\n").split(',')
+    # filename = input("Enter the name of the document (.pdf or .txt):\n")
+    filename = "City of Stuart v. 3M Lawsuit.pdf"
     start_time = time.time()
     
     all_docs = []
@@ -57,7 +57,7 @@ def main():
         st = time.time()
         query_pdf(query, persisted_vectorstore.as_retriever())
         end = time.time()
-        print("Time it took to query with vector store: " + str(end-st))
+        print("\nTime it took to query with vector store: " + str(end-st) + "\n")
         query = input("Type in your query (type 'exit' to quit):\n")
 
 if __name__ == "__main__":
