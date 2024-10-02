@@ -28,6 +28,9 @@ import regex as re
 
 # for q_id 6 check rps if null check ces
 
+
+
+
 def compute_accuracy_on_directory(directory):
     def percent_diff(num1, num2):
         return abs(num1 - num2) / ((num1 + num2) / 2)
@@ -39,6 +42,8 @@ def compute_accuracy_on_directory(directory):
     for subdir, dirs, files in os.walk(reldir):
         for file in files:
             print(f"checking {file}...")
+            if file.endswith('.DS_Store'):
+                continue
             output_df = pd.read_excel(reldir + "/" + file)
             accuracies = []
             for i, row in output_df.iterrows():
@@ -247,5 +252,5 @@ def compute_accuracy_on_directory(directory):
                 output_df.to_excel(writer)
             
 
-compute_accuracy_on_directory("output")
+compute_accuracy_on_directory("results")
 

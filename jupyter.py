@@ -51,10 +51,6 @@ files_to_query = ['VA HB 1451.pdf']
 
 
 
-
-
-
-
 import pandas as pd
 import math
 import ast
