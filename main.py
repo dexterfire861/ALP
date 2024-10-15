@@ -6,23 +6,36 @@ import requests
 import pypdf
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
-from langchain_community.chat_models import ChatOpenAI
-from langchain.retrievers import MultiQueryRetriever
+from langchain_community.chat_models import ChatAnthropic
+from langchain_huggingface import HuggingFaceEndpoint
 from litellm import embedding, LiteLLM, completion
+from langchain.prompts import ChatPromptTemplate
 import numpy as np
 import faiss
-import math
 import ast
+from langchain_community.chat_models import ChatAnthropic
+
+from huggingface_hub import InferenceClient
+import anthropic
+
+
+
+
 
 load_dotenv()
 
 # Load API keys and initialize clients
 api_key = os.getenv("UF_API_KEY")
-base_url = "https://api.ai.it.ufl.edu/v1/"
-client = openai.OpenAI(api_key=api_key, base_url=base_url)
 openai_api_key = os.getenv("OPENAI_API_KEY")
+claude_api_key = os.getenv("CLAUDE_API_KEY")
+llama_api_key = os.getenv("LLAMA_API_KEY")
+hugging_face_api_key = os.getenv("HUGGING_FACE_API_KEY")
+
+base_url = "https://api.ai.it.ufl.edu/v1/"
+
+
+
+
 lite_llm_client = LiteLLM(api_key=api_key, base_url=base_url)
 
 # Load questions from Excel
@@ -79,7 +92,9 @@ models = [
     "gpt-4o",
     "gpt-4-turbo",
     "mistral-7b-instruct",
-    # "llama3-70b-instruct", These llama models do not work currently and their input format is different
+    "claude-3-5-sonnet-20240620",
+    "Meta-Llama-3.1-8B-Instruct"
+    # "llama3-70b-instruct", These llama models do not work currently or their input format is different
     # "llama3-8b-instruct",
     "gpt-4o-mini",
     "gpt-3.5-turbo"
@@ -91,36 +106,25 @@ print(f"Looking for files in: {pdf_directory}")
 
 pdf_files = [f for f in os.listdir(pdf_directory) if f.endswith('.pdf')]
 
-for file_name in pdf_files:
-    file_path = os.path.join(pdf_directory, file_name)
-    if not os.path.isfile(file_path):
-        print(f"File not found: {file_path}")
-        continue
-    
-    # Load the PDF document
+def process_pdf(file_path):
     loader = PyPDFLoader(file_path)
     documents = loader.load()
-
     if not documents:
         print(f"ERROR: No documents loaded from {file_path}.")
-        continue
-    else:
-        print(f"Documents loaded successfully from {file_path}.")
-
-    # Split the document into chunks
+        return None, None
+    
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(documents)
-
-    embedding_model = "text-embedding-ada-002"
-
+    
     if not splits:
         print("ERROR: No splits generated.")
-        continue
-    else:
-        print(f"Generated {len(splits)} splits.")
+        return None, None
+    
+    return documents, splits
 
-    # Create embeddings for the document chunks using LiteLLM
+def generate_embeddings(splits):
     embeddings = []
+    embedding_model = "text-embedding-ada-002"
     try:
         print("Generating embeddings with LiteLLM...")
         for split in splits:
@@ -135,58 +139,77 @@ for file_name in pdf_files:
         print("Embeddings generated successfully.")
     except Exception as e:
         print("An error occurred while generating embeddings:", e)
-
-    # Convert embeddings into a FAISS index for efficient similarity search
+    
+    return embeddings
+    
+def create_faiss_index(embeddings):
     d = len(embeddings[0]['embedding'])  # Dimension of the embedding vectors
     index = faiss.IndexFlatL2(d)  # Create a FAISS index
-    embedding_vectors = np.vstack([emb["embedding"] for emb in embeddings]).astype('float32')  # Convert embeddings to float32
-    index.add(embedding_vectors)  # Add vectors to the FAISS index
+    embedding_vectors = np.vstack([emb["embedding"] for emb in embeddings]).astype('float32')
+    index.add(embedding_vectors)
+    return index
 
-    # Retrieval function using FAISS
-    def retrieve_documents(query, embeddings, index, top_k=3):
-        # Generate query embedding using LiteLLM with a supported model
-        try:
-            query_text = str(query)
-            embedding_result = embedding(api_key=openai_api_key, model=embedding_model, input=query_text)
-            query_embedding = embedding_result.data[0]['embedding']  # Extract the embedding vector
+def retrieve_documents(query, embeddings, index, top_k=3):
+    try:
+        query_text = str(query)
+        embedding_result = embedding(model="text-embedding-ada-002", input=query_text)
+        query_embedding = embedding_result.data[0]['embedding']
 
-            if not isinstance(query_embedding,list) or not all(isinstance(i, float) for i in query_embedding):
-                raise ValueError("Invalid embedding format")
+        if not isinstance(query_embedding, list) or not all(isinstance(i, float) for i in query_embedding):
+            raise ValueError("Invalid embedding format")
 
-            # Convert query embedding to numpy array in float32 format
-            query_embedding_np = np.array(query_embedding, dtype='float32')
-        except Exception as e:
-            print(f"Error generating embedding for query '{query}': {e}")
-            return []
-
-        # Perform search in the FAISS index
+        query_embedding_np = np.array(query_embedding, dtype='float32')
         distances, indices = index.search(np.array([query_embedding_np]), top_k)
-
-        # Retrieve relevant documents
         return [embeddings[i] for i in indices[0]]
+    except Exception as e:
+        print(f"Error retrieving documents for query '{query}': {e}")
+        return []
 
-    # Create results directory if it doesn't exist
-    if not os.path.exists("results"):
-        os.makedirs("results")
+def process_queries(queries, embeddings, index, model, prompt_engineering, api_key, base_url, file_name):
+    results = []
+    for query in queries:
+        reference_law = file_name[:-4]
+        gt_df = pd.read_excel('Database June 20 2022.xlsx', sheet_name='master')
+        ground_truth = retrieve_ground_truth_values(gt_df, query['id'], reference_law)
+        relevant_docs = retrieve_documents(query['question'], embeddings, index)  # Pass the FAISS index, not the model
+        context = "\n\n".join(doc['text'] for doc in relevant_docs)
 
-    # Process each model
-    for model in models:
-        print(f"\nProcessing with model: {model}")
+        if "claude" in model:
+            try:
+                response = anthropic.Anthropic(api_key=claude_api_key).messages.create(
+                    model="claude-3-5-sonnet-20240620",
+                    max_tokens=1024,
+                    system= str(prompt_engineering),
+                    messages=[
+                        {"role": "user", "content": f"Question: {query['question']}\nContext: {context}\nAnswer:"}
+                    ]
+                )
+                answer = response.content[0].text
+            except Exception as e:
+                print(f"Error generating response for query '{query['question']}' with model {model}: {e}")
+                answer = f"Error: {str(e)}"
+        
+        elif "Llama" in model:
+            try:
+                client = InferenceClient(api_key=hugging_face_api_key)
 
-        results = []
+                response = client.chat_completion(
+                    model="meta-llama/" + model,
+                    messages=[
+                        {"role": "system", "content": str(prompt_engineering)},
+                        {"role": "user", "content": f"Question: {query['question']}\nContext: {context}\nAnswer:"}
+                    ],
+                )
 
-        for query in queries:
-            # Retrieve ground truth values
-            reference_law = file_name[:-4]  # Assuming the reference law is derived from the file name
-            ground_truth = retrieve_ground_truth_values(gt_df, query['id'], reference_law)
+                answer = response.choices[0].message.content
 
-            # Retrieve documents based on the query
-            relevant_docs = retrieve_documents(query['question'], embeddings, index)
-            context = "\n\n".join(doc['metadata'].get('source', 'Unknown') + ": " + doc['text'][:200] + "..." for doc in relevant_docs)
+                
 
-            print(f"Query: {query['question']}\nRetrieved Context: {context}")
+            except Exception as e:
+                print(f"Error generating response for query '{query['question']}' with model {model}: {e}")
+                answer = f"Error: {str(e)}"
 
-            # Generate response using LiteLLM chat completion
+        else:
             try:
                 model_prefix = "openai/"
                 response = completion(
@@ -199,26 +222,69 @@ for file_name in pdf_files:
                     ],
                 )
                 answer = response['choices'][0]['message']['content']
-                print("Response: ", answer)
             except Exception as e:
                 print(f"Error generating response for query '{query['question']}' with model {model}: {e}")
                 answer = f"Error: {str(e)}"
-            
-            results.append({
-                "Question ID": query['id'],
-                "Type": query['type'],
-                "Response": answer,
-                "Ground Truth": ground_truth,
-                "Sources": context,
-                
-            })
+        
+        results.append({
+            "Type": query['type'],
+            "Tags": query['tags'],
+            "Question ID": query['id'],
+            "Question": query['question'],
+            "Ground Truth": ground_truth,
+            "Response": answer,
+            "Source": context,
+        })
+        
+        print(f"Question ID: {query['id']}")
+        print(f"Question: {query['question']}")
+        print(f"Answer: {answer}")
+        print(f"Sources: {context}")
+        print(f"Ground Truth: {ground_truth}")
+        print("-" * 50)
+    
+    return results
 
-            print(f"Question ID: {query['id']}")
-            print(f"Question: {query['question']}")
-            print(f"Answer: {answer}")
-            print(f"Sources: {context}")
-            print(f"Ground Truth: {ground_truth}")
-            print("-" * 50)
+for file_name in pdf_files:
+    file_path = os.path.join(pdf_directory, file_name)
+    if not os.path.isfile(file_path):
+        print(f"File not found: {file_path}")
+        continue
+    
+    print(f"\nProcessing file: {file_name}")
+    
+    # Load and process the PDF
+    documents, splits = process_pdf(file_path)
+    if not documents or not splits:
+        print(f"Error processing {file_name}. Skipping to next file.")
+        continue
+
+    # Generate embeddings and create vector store
+    embeddings = generate_embeddings(splits)
+    if not embeddings:
+        print(f"Error generating embeddings for {file_name}. Skipping to next file.")
+        continue
+
+    # Create FAISS index
+    index = create_faiss_index(embeddings)
+
+    # Create results directory if it doesn't exist
+    os.makedirs("results", exist_ok=True)
+
+    # Process each model
+    for model in models:
+        print(f"\nProcessing with model: {model}")
+
+        results = process_queries(
+            queries, 
+            embeddings,
+            index,
+            model, 
+            prompt_engineering, 
+            api_key, 
+            base_url, 
+            file_name
+        )
 
         # Save the results to an Excel file in the results directory
         df = pd.DataFrame(results)
