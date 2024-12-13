@@ -1,0 +1,291 @@
+Fri Dec 13 10:35:11 EST 2024
+c1006a-s35.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:20: LangChainDeprecationWarning: Importing FAISS from langchain.vectorstores is deprecated. Please replace deprecated imports:
+
+>> from langchain.vectorstores import FAISS
+
+with new imports of:
+
+>> from langchain_community.vectorstores import FAISS
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores import FAISS
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain/chat_models/__init__.py:33: LangChainDeprecationWarning: Importing chat models from langchain is deprecated. Importing from langchain will no longer be supported as of langchain==0.2.0. Please import from langchain-community instead:
+
+`from langchain_community.chat_models import ChatOpenAI`.
+
+To install langchain-community run `pip install -U langchain-community`.
+  warnings.warn(
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain/chat_models/__init__.py:33: LangChainDeprecationWarning: Importing chat models from langchain is deprecated. Importing from langchain will no longer be supported as of langchain==0.2.0. Please import from langchain-community instead:
+
+`from langchain_community.chat_models import ChatOpenAI`.
+
+To install langchain-community run `pip install -U langchain-community`.
+  warnings.warn(
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:137: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['question'] = row[0]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:138: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['type'] = row[1]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:139: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['tags'] = row[2]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:140: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['id'] = int(row[3])
+initilizing...
+
+MD SB 791.pdf
+SKIPPING MD SB 791.pdf, already queried for all models on MD SB 791!
+
+MD SB 516.pdf
+SKIPPING MD SB 516.pdf, already queried for all models on MD SB 516!
+
+Guam Public Statutes 29-62.pdf
+SKIPPING Guam Public Statutes 29-62.pdf, already queried for all models on Guam Public Statutes 29-62!
+
+Kansas Statutes  66-1256, et seq. 2009.pdf
+SKIPPING Kansas Statutes  66-1256, et seq. 2009.pdf, already queried for all models on Kansas Statutes  66-1256, et seq. 2009!
+
+OK HB 3028.pdf
+SKIPPING OK HB 3028.pdf, not accessible from database
+
+NC SB 3.pdf
+SKIPPING NC SB 3.pdf, already queried for all models on NC SB 3!
+
+NM SB 43.pdf
+SKIPPING NM SB 43.pdf, no embeddings directory
+
+RI HB 7413.pdf
+SKIPPING RI HB 7413.pdf, already queried for all models on RI HB 7413!
+
+NJ SB 3723.pdf
+SKIPPING NJ SB 3723.pdf, already queried for all models on NJ SB 3723!
+
+Kansas Statutes  66-1256, et seq. 2015.pdf
+SKIPPING Kansas Statutes  66-1256, et seq. 2015.pdf, already queried for all models on Kansas Statutes  66-1256, et seq. 2015!
+
+WA Initiative 936.pdf
+SKIPPING WA Initiative 936.pdf, not currently working
+
+NH Title XXXIV Section 362F.pdf
+SKIPPING NH Title XXXIV Section 362F.pdf, already queried for all models on NH Title XXXIV Section 362F!
+
+WA Initiative 937.pdf
+SKIPPING WA Initiative 937.pdf, already queried for all models on WA Initiative 937!
+
+UT SB 0202.pdf
+SKIPPING UT SB 0202.pdf, not accessible from database
+
+HI HB 173.pdf
+SKIPPING HI HB 173.pdf, already queried for all models on HI HB 173!
+
+CO CRS 40-2-124.pdf
+SKIPPING CO CRS 40-2-124.pdf, not accessible from database
+
+DE S.B. 199.pdf
+SKIPPING DE S.B. 199.pdf, not accessible from database
+
+WI State Legislature CH 196 .pdf
+SKIPPING WI State Legislature CH 196 .pdf, not accessible from database
+
+Iowa Code 476.41 et seq..pdf
+SKIPPING Iowa Code 476.41 et seq..pdf, not accessible from database
+
+RPS Document Key.pdf
+SKIPPING RPS Document Key.pdf, not accessible from database
+
+NV SB 372.pdf
+SKIPPING NV SB 372.pdf, already queried for all models on NV SB 372!
+
+D.C. Statutes 15-340.pdf
+SKIPPING D.C. Statutes 15-340.pdf, no embeddings directory
+
+MN SF 146.pdf
+SKIPPING MN SF 146.pdf, already queried for all models on MN SF 146!
+
+OH HB 6.pdf
+SKIPPING OH HB 6.pdf, already queried for all models on OH HB 6!
+
+NY Public Service Comission Order Adopting a Clean Energy Standard.pdf
+SKIPPING NY Public Service Comission Order Adopting a Clean Energy Standard.pdf, not accessible from database
+
+NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf
+SKIPPING NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf, already queried for all models on NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues!
+
+AZ AAC R14-2-1801 et seq..pdf
+SKIPPING AZ AAC R14-2-1801 et seq..pdf, not accessible from database
+
+CT HB 7432.pdf
+SKIPPING CT HB 7432.pdf, already queried for all models on CT HB 7432!
+
+MA General Statutes C. 25A S. 11F.pdf
+SKIPPING MA General Statutes C. 25A S. 11F.pdf, already queried for all models on MA General Statutes C. 25A S. 11F!
+
+VA Code § 56-585.2.pdf
+SKIPPING VA Code § 56-585.2.pdf, already queried for all models on VA Code § 56-585.2!
+
+ME PL C. 447.pdf
+SKIPPING ME PL C. 447.pdf, already queried for all models on ME PL C. 447!
+
+RI S 2082.pdf
+SKIPPING RI S 2082.pdf, already queried for all models on RI S 2082!
+
+NY SB 06599.pdf
+SKIPPING NY SB 06599.pdf, already queried for all models on NY SB 06599!
+
+VT HB 40.pdf
+SKIPPING VT HB 40.pdf, already queried for all models on VT HB 40!
+
+Tex. Utilities Code Ann. §39.904..pdf
+SKIPPING Tex. Utilities Code Ann. §39.904..pdf, not accessible from database
+
+CT SB-9.pdf
+SKIPPING CT SB-9.pdf, already queried for all models on CT SB-9!
+
+MT MCA 69-3-2001 et seq..pdf
+SKIPPING MT MCA 69-3-2001 et seq..pdf, already queried for all models on MT MCA 69-3-2001 et seq.!
+
+ME PL C. 403.pdf
+SKIPPING ME PL C. 403.pdf, already queried for all models on ME PL C. 403!
+
+CT HB 733.pdf
+SKIPPING CT HB 733.pdf, already queried for all models on CT HB 733!
+
+NM Stat. § 62-15-34 et seq..pdf
+SKIPPING NM Stat. § 62-15-34 et seq..pdf, already queried for all models on NM Stat. § 62-15-34 et seq.!
+
+NM SB 489.pdf
+SKIPPING NM SB 489.pdf, already queried for all models on NM SB 489!
+
+IN SB 251.pdf
+SKIPPING IN SB 251.pdf, already queried for all models on IN SB 251!
+
+ME 1997 PL C. 316.pdf
+SKIPPING ME 1997 PL C. 316.pdf, not accessible from database
+
+CA SB 350.pdf
+SKIPPING CA SB 350.pdf, already queried for all models on CA SB 350!
+
+SC SB 1189.pdf
+SKIPPING SC SB 1189.pdf, not accessible from database
+
+PR SB 1121.pdf
+SKIPPING PR SB 1121.pdf, already queried for all models on PR SB 1121!
+
+OH SB 221.pdf
+SKIPPING OH SB 221.pdf, already queried for all models on OH SB 221!
+
+OR SB 1547.pdf
+SKIPPING OR SB 1547.pdf, already queried for all models on OR SB 1547!
+
+MP PL 18-62.pdf
+SKIPPING MP PL 18-62.pdf, already queried for all models on MP PL 18-62!
+
+NJ PL 1999 Ch. 23.pdf
+SKIPPING NJ PL 1999 Ch. 23.pdf, no embeddings directory
+
+D.C. Statutes 17-250.pdf
+SKIPPING D.C. Statutes 17-250.pdf, already queried for all models on D.C. Statutes 17-250!
+
+CO SB 236.pdf
+SKIPPING CO SB 236.pdf, already queried for all models on CO SB 236!
+
+DE SB 74.pdf
+SKIPPING DE SB 74.pdf, already queried for all models on DE SB 74!
+
+PA SB 1030.pdf
+SKIPPING PA SB 1030.pdf, already queried for all models on PA SB 1030!
+
+HI HB 623.pdf
+SKIPPING HI HB 623.pdf, already queried for all models on HI HB 623!
+
+MO R.S. 393.1020 et seq.pdf
+SKIPPING MO R.S. 393.1020 et seq.pdf, not accessible from database
+
+CT HB 5005.pdf
+SKIPPING CT HB 5005.pdf, already queried for all models on CT HB 5005!
+
+NV SB 358 2019.pdf
+SKIPPING NV SB 358 2019.pdf, already queried for all models on NV SB 358 2019!
+
+MD SB 209.pdf
+SKIPPING MD SB 209.pdf, already queried for all models on MD SB 209!
+
+D.C. Statutes 22-257.pdf
+SKIPPING D.C. Statutes 22-257.pdf, not currently working
+
+VA HB 1451.pdf
+SKIPPING VA HB 1451.pdf, already queried for all models on VA HB 1451!
+
+NV SB 358 2009.pdf
+SKIPPING NV SB 358 2009.pdf, already queried for all models on NV SB 358 2009!
+
+NJ SB 1925.pdf
+SKIPPING NJ SB 1925.pdf, already queried for all models on NJ SB 1925!
+
+MA 310 CMR 7.75.pdf
+SKIPPING MA 310 CMR 7.75.pdf, already queried for all models on MA 310 CMR 7.75!
+
+USVI Act 7075.pdf
+SKIPPING USVI Act 7075.pdf, not accessible from database
+
+AZ AAC R14-2-1618.pdf
+SKIPPING AZ AAC R14-2-1618.pdf, not accessible from database
+
+CA SB 1078.pdf
+SKIPPING CA SB 1078.pdf, already queried for all models on CA SB 1078!
+
+CA SB 100.pdf
+SKIPPING CA SB 100.pdf, already queried for all models on CA SB 100!
+
+CA SB X1 2.pdf
+SKIPPING CA SB X1 2.pdf, already queried for all models on CA SB X1 2!
+
+OR SB 838.pdf
+SKIPPING OR SB 838.pdf, already queried for all models on OR SB 838!
+
+CA SB 107.pdf
+SKIPPING CA SB 107.pdf, already queried for all models on CA SB 107!
+
+NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf
+SKIPPING NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf, already queried for all models on NY Public Service Comission Order Approving Renewable Portfolio Standard!
+
+HI HB 1464.pdf
+SKIPPING HI HB 1464.pdf, already queried for all models on HI HB 1464!
+
+WV HB 103.pdf
+SKIPPING WV HB 103.pdf, not currently working
+
+NV AB 226.pdf
+SKIPPING NV AB 226.pdf, already queried for all models on NV AB 226!
+
+PR Act 82-2010.pdf
+SKIPPING PR Act 82-2010.pdf, already queried for all models on PR Act 82-2010!
+
+MP PL 15-23.pdf
+SKIPPING MP PL 15-23.pdf, already queried for all models on MP PL 15-23!
+
+D.C. Statutes 21-154.pdf
+SKIPPING D.C. Statutes 21-154.pdf, already queried for all models on D.C. Statutes 21-154!
+
+MI SB 438.pdf
+SKIPPING MI SB 438.pdf, already queried for all models on MI SB 438!
+
+MI SB 213.pdf
+SKIPPING MI SB 213.pdf, already queried for all models on MI SB 213!
+
+MD SB 869.pdf
+SKIPPING MD SB 869.pdf, already queried for all models on MD SB 869!
+
+SD HB 1123.pdf
+SKIPPING SD HB 1123.pdf, already queried for all models on SD HB 1123!
+
+HI SB 2474.pdf
+SKIPPING HI SB 2474.pdf, already queried for all models on HI SB 2474!
+
+ND HB 1506.pdf
+SKIPPING ND HB 1506.pdf, already queried for all models on ND HB 1506!
+
+DE S.B. 33 [not yet included].pdf
+SKIPPING DE S.B. 33 [not yet included].pdf, not currently working
+Fri Dec 13 10:36:50 EST 2024
+c1006a-s35.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src

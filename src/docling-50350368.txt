@@ -1,0 +1,667 @@
+Tue Nov 19 18:14:21 EST 2024
+c0903a-s11.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src
+/blue/rcstudents/smaley/alp/ALP_updated/src/docling_run.py:99: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['question'] = row[0]
+/blue/rcstudents/smaley/alp/ALP_updated/src/docling_run.py:100: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['type'] = row[1]
+/blue/rcstudents/smaley/alp/ALP_updated/src/docling_run.py:101: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['tags'] = row[2]
+/blue/rcstudents/smaley/alp/ALP_updated/src/docling_run.py:102: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['id'] = int(row[3])
+initilizing...
+
+MD SB 791.pdf
+checking if MD SB 791.pdf is accessible in database...
+loading pages from MD SB 791.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|█████████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 911.67it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+[91m*ERR* --- *ERR*[0m
+[91m*ERR* Table is not square! *ERR*[0m
+[93m*Padding to square...*[0m
+[91m*ERR* --- *ERR*[0m
+[91m*ERR* Table is not square! *ERR*[0m
+[93m*Padding to square...*[0m
+Generated 204 splits.
+
+MD SB 516.pdf
+checking if MD SB 516.pdf is accessible in database...
+loading pages from MD SB 516.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 17339.80it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+[91m*ERR* --- *ERR*[0m
+[91m*ERR* Table is not square! *ERR*[0m
+[93m*Padding to square...*[0m
+Generated 295 splits.
+
+Guam Public Statutes 29-62.pdf
+checking if Guam Public Statutes 29-62.pdf is accessible in database...
+loading pages from Guam Public Statutes 29-62.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|████████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 4837.10it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 12 splits.
+
+Kansas Statutes  66-1256, et seq. 2009.pdf
+checking if Kansas Statutes  66-1256, et seq. 2009.pdf is accessible in database...
+loading pages from Kansas Statutes  66-1256, et seq. 2009.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 15117.64it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 12 splits.
+
+OK HB 3028.pdf
+checking if OK HB 3028.pdf is accessible in database...
+OK HB 3028.pdf not accessible from database! Skipping
+
+NC SB 3.pdf
+checking if NC SB 3.pdf is accessible in database...
+loading pages from NC SB 3.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 13419.39it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 36 splits.
+
+NM SB 43.pdf
+checking if NM SB 43.pdf is accessible in database...
+loading pages from NM SB 43.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 39527.47it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 19 splits.
+
+RI HB 7413.pdf
+checking if RI HB 7413.pdf is accessible in database...
+loading pages from RI HB 7413.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 17533.09it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 17 splits.
+
+NJ SB 3723.pdf
+checking if NJ SB 3723.pdf is accessible in database...
+loading pages from NJ SB 3723.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 10042.23it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 147 splits.
+failed on NJ SB 3723
+
+Kansas Statutes  66-1256, et seq. 2015.pdf
+checking if Kansas Statutes  66-1256, et seq. 2015.pdf is accessible in database...
+loading pages from Kansas Statutes  66-1256, et seq. 2015.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 14315.03it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 4 splits.
+failed on Kansas Statutes  66-1256, et seq. 2015
+
+WA Initiative 936.pdf
+SKIPPING WA Initiative 936.pdf, not currently working
+
+NH Title XXXIV Section 362F.pdf
+checking if NH Title XXXIV Section 362F.pdf is accessible in database...
+loading pages from NH Title XXXIV Section 362F.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19671.05it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 76 splits.
+failed on NH Title XXXIV Section 362F
+
+WA Initiative 937.pdf
+checking if WA Initiative 937.pdf is accessible in database...
+loading pages from WA Initiative 937.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 10077.08it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 63 splits.
+failed on WA Initiative 937
+
+UT SB 0202.pdf
+checking if UT SB 0202.pdf is accessible in database...
+UT SB 0202.pdf not accessible from database! Skipping
+
+HI HB 173.pdf
+checking if HI HB 173.pdf is accessible in database...
+loading pages from HI HB 173.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 17468.18it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 24 splits.
+failed on HI HB 173
+
+CO CRS 40-2-124.pdf
+checking if CO CRS 40-2-124.pdf is accessible in database...
+CO CRS 40-2-124.pdf not accessible from database! Skipping
+
+DE S.B. 199.pdf
+checking if DE S.B. 199.pdf is accessible in database...
+DE S.B. 199.pdf not accessible from database! Skipping
+
+WI State Legislature CH 196 .pdf
+checking if WI State Legislature CH 196 .pdf is accessible in database...
+WI State Legislature CH 196 .pdf not accessible from database! Skipping
+
+Iowa Code 476.41 et seq..pdf
+checking if Iowa Code 476.41 et seq..pdf is accessible in database...
+Iowa Code 476.41 et seq..pdf not accessible from database! Skipping
+
+RPS Document Key.pdf
+checking if RPS Document Key.pdf is accessible in database...
+RPS Document Key.pdf not accessible from database! Skipping
+
+NV SB 372.pdf
+checking if NV SB 372.pdf is accessible in database...
+loading pages from NV SB 372.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 14374.99it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 26 splits.
+failed on NV SB 372
+
+D.C. Statutes 15-340.pdf
+checking if D.C. Statutes 15-340.pdf is accessible in database...
+loading pages from D.C. Statutes 15-340.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 12981.00it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 33 splits.
+
+MN SF 146.pdf
+checking if MN SF 146.pdf is accessible in database...
+loading pages from MN SF 146.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 27255.41it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 31 splits.
+
+OH HB 6.pdf
+checking if OH HB 6.pdf is accessible in database...
+loading pages from OH HB 6.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 10828.67it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 172 splits.
+failed on OH HB 6
+
+NY Public Service Comission Order Adopting a Clean Energy Standard.pdf
+checking if NY Public Service Comission Order Adopting a Clean Energy Standard.pdf is accessible in database...
+NY Public Service Comission Order Adopting a Clean Energy Standard.pdf not accessible from database! Skipping
+
+NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf
+checking if NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf is accessible in database...
+loading pages from NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19599.55it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 73 splits.
+
+AZ AAC R14-2-1801 et seq..pdf
+checking if AZ AAC R14-2-1801 et seq..pdf is accessible in database...
+AZ AAC R14-2-1801 et seq..pdf not accessible from database! Skipping
+
+CT HB 7432.pdf
+checking if CT HB 7432.pdf is accessible in database...
+loading pages from CT HB 7432.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 27040.64it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 569 splits.
+failed on CT HB 7432
+
+MA General Statutes C. 25A S. 11F.pdf
+checking if MA General Statutes C. 25A S. 11F.pdf is accessible in database...
+loading pages from MA General Statutes C. 25A S. 11F.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 11491.24it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 18 splits.
+failed on MA General Statutes C. 25A S. 11F
+
+VA Code § 56-585.2.pdf
+checking if VA Code § 56-585.2.pdf is accessible in database...
+loading pages from VA Code § 56-585.2.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 18883.81it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 22 splits.
+failed on VA Code § 56-585.2
+
+ME PL C. 447.pdf
+checking if ME PL C. 447.pdf is accessible in database...
+loading pages from ME PL C. 447.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 117597.31it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 59 splits.
+failed on ME PL C. 447
+
+RI S 2082.pdf
+checking if RI S 2082.pdf is accessible in database...
+loading pages from RI S 2082.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 12236.22it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 35 splits.
+failed on RI S 2082
+
+NY SB 06599.pdf
+checking if NY SB 06599.pdf is accessible in database...
+loading pages from NY SB 06599.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 16996.28it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 113 splits.
+
+VT HB 40.pdf
+checking if VT HB 40.pdf is accessible in database...
+loading pages from VT HB 40.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 20186.49it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 178 splits.
+failed on VT HB 40
+
+Tex. Utilities Code Ann. §39.904..pdf
+checking if Tex. Utilities Code Ann. §39.904..pdf is accessible in database...
+Tex. Utilities Code Ann. §39.904..pdf not accessible from database! Skipping
+
+CT SB-9.pdf
+checking if CT SB-9.pdf is accessible in database...
+loading pages from CT SB-9.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 39903.53it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 175 splits.
+failed on CT SB-9
+
+MT MCA 69-3-2001 et seq..pdf
+checking if MT MCA 69-3-2001 et seq..pdf is accessible in database...
+loading pages from MT MCA 69-3-2001 et seq..pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 12857.20it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 38 splits.
+
+ME PL C. 403.pdf
+checking if ME PL C. 403.pdf is accessible in database...
+loading pages from ME PL C. 403.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 22850.32it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 20 splits.
+
+CT HB 733.pdf
+checking if CT HB 733.pdf is accessible in database...
+loading pages from CT HB 733.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 17331.83it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 130 splits.
+
+NM Stat. § 62-15-34 et seq..pdf
+checking if NM Stat. § 62-15-34 et seq..pdf is accessible in database...
+loading pages from NM Stat. § 62-15-34 et seq..pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 10477.03it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 63 splits.
+failed on NM Stat. § 62-15-34 et seq.
+
+NM SB 489.pdf
+checking if NM SB 489.pdf is accessible in database...
+loading pages from NM SB 489.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 11501.75it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 151 splits.
+failed on NM SB 489
+
+IN SB 251.pdf
+checking if IN SB 251.pdf is accessible in database...
+loading pages from IN SB 251.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 11611.42it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 34 splits.
+failed on IN SB 251
+
+ME 1997 PL C. 316.pdf
+checking if ME 1997 PL C. 316.pdf is accessible in database...
+ME 1997 PL C. 316.pdf not accessible from database! Skipping
+
+CA SB 350.pdf
+checking if CA SB 350.pdf is accessible in database...
+loading pages from CA SB 350.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 13496.15it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 210 splits.
+failed on CA SB 350
+
+SC SB 1189.pdf
+checking if SC SB 1189.pdf is accessible in database...
+SC SB 1189.pdf not accessible from database! Skipping
+
+PR SB 1121.pdf
+checking if PR SB 1121.pdf is accessible in database...
+loading pages from PR SB 1121.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 22296.95it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 453 splits.
+
+OH SB 221.pdf
+checking if OH SB 221.pdf is accessible in database...
+loading pages from OH SB 221.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 11636.48it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 237 splits.
+failed on OH SB 221
+
+OR SB 1547.pdf
+checking if OR SB 1547.pdf is accessible in database...
+loading pages from OR SB 1547.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 53468.46it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 101 splits.
+failed on OR SB 1547
+
+MP PL 18-62.pdf
+checking if MP PL 18-62.pdf is accessible in database...
+loading pages from MP PL 18-62.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 14201.93it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 11 splits.
+failed on MP PL 18-62
+
+NJ PL 1999 Ch. 23.pdf
+checking if NJ PL 1999 Ch. 23.pdf is accessible in database...
+loading pages from NJ PL 1999 Ch. 23.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 15264.35it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 483 splits.
+failed on NJ PL 1999 Ch. 23
+
+D.C. Statutes 17-250.pdf
+checking if D.C. Statutes 17-250.pdf is accessible in database...
+loading pages from D.C. Statutes 17-250.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19055.39it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 94 splits.
+
+CO SB 236.pdf
+checking if CO SB 236.pdf is accessible in database...
+loading pages from CO SB 236.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 14809.23it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 211 splits.
+failed on CO SB 236
+
+DE SB 74.pdf
+checking if DE SB 74.pdf is accessible in database...
+loading pages from DE SB 74.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 16412.49it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 41 splits.
+
+PA SB 1030.pdf
+checking if PA SB 1030.pdf is accessible in database...
+loading pages from PA SB 1030.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 14277.13it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 61 splits.
+
+HI HB 623.pdf
+checking if HI HB 623.pdf is accessible in database...
+loading pages from HI HB 623.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 22192.08it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 13 splits.
+
+MO R.S. 393.1020 et seq.pdf
+checking if MO R.S. 393.1020 et seq.pdf is accessible in database...
+MO R.S. 393.1020 et seq.pdf not accessible from database! Skipping
+
+CT HB 5005.pdf
+checking if CT HB 5005.pdf is accessible in database...
+loading pages from CT HB 5005.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 26342.45it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 540 splits.
+
+NV SB 358 2019.pdf
+checking if NV SB 358 2019.pdf is accessible in database...
+loading pages from NV SB 358 2019.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19438.07it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 110 splits.
+failed on NV SB 358 2019
+
+MD SB 209.pdf
+checking if MD SB 209.pdf is accessible in database...
+loading pages from MD SB 209.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 47363.53it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 64 splits.
+failed on MD SB 209
+
+D.C. Statutes 22-257.pdf
+SKIPPING D.C. Statutes 22-257.pdf, not currently working
+
+VA HB 1451.pdf
+checking if VA HB 1451.pdf is accessible in database...
+loading pages from VA HB 1451.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 18789.81it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 64 splits.
+failed on VA HB 1451
+
+NV SB 358 2009.pdf
+checking if NV SB 358 2009.pdf is accessible in database...
+loading pages from NV SB 358 2009.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|█████████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 307.11it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 235 splits.
+failed on NV SB 358 2009
+
+NJ SB 1925.pdf
+checking if NJ SB 1925.pdf is accessible in database...
+loading pages from NJ SB 1925.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 13334.06it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 156 splits.
+failed on NJ SB 1925
+
+MA 310 CMR 7.75.pdf
+checking if MA 310 CMR 7.75.pdf is accessible in database...
+loading pages from MA 310 CMR 7.75.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 15141.89it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 74 splits.
+failed on MA 310 CMR 7.75
+
+USVI Act 7075.pdf
+checking if USVI Act 7075.pdf is accessible in database...
+USVI Act 7075.pdf not accessible from database! Skipping
+
+AZ AAC R14-2-1618.pdf
+checking if AZ AAC R14-2-1618.pdf is accessible in database...
+AZ AAC R14-2-1618.pdf not accessible from database! Skipping
+
+CA SB 1078.pdf
+checking if CA SB 1078.pdf is accessible in database...
+loading pages from CA SB 1078.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 23215.70it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 48 splits.
+failed on CA SB 1078
+
+CA SB 100.pdf
+checking if CA SB 100.pdf is accessible in database...
+loading pages from CA SB 100.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 10442.25it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 59 splits.
+
+CA SB X1 2.pdf
+checking if CA SB X1 2.pdf is accessible in database...
+loading pages from CA SB X1 2.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19930.69it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 210 splits.
+
+OR SB 838.pdf
+checking if OR SB 838.pdf is accessible in database...
+loading pages from OR SB 838.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 12079.60it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 159 splits.
+failed on OR SB 838
+
+CA SB 107.pdf
+checking if CA SB 107.pdf is accessible in database...
+loading pages from CA SB 107.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 16236.02it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 121 splits.
+
+NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf
+checking if NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf is accessible in database...
+loading pages from NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 15105.54it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 303 splits.
+failed on NY Public Service Comission Order Approving Renewable Portfolio Standard
+
+HI HB 1464.pdf
+checking if HI HB 1464.pdf is accessible in database...
+loading pages from HI HB 1464.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 19784.45it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 56 splits.
+failed on HI HB 1464
+
+WV HB 103.pdf
+SKIPPING WV HB 103.pdf, not currently working
+
+NV AB 226.pdf
+checking if NV AB 226.pdf is accessible in database...
+loading pages from NV AB 226.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 51428.80it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 6 splits.
+failed on NV AB 226
+
+PR Act 82-2010.pdf
+checking if PR Act 82-2010.pdf is accessible in database...
+loading pages from PR Act 82-2010.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 18009.89it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 101 splits.
+failed on PR Act 82-2010
+
+MP PL 15-23.pdf
+checking if MP PL 15-23.pdf is accessible in database...
+loading pages from MP PL 15-23.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 16076.97it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 61 splits.
+failed on MP PL 15-23
+
+D.C. Statutes 21-154.pdf
+checking if D.C. Statutes 21-154.pdf is accessible in database...
+loading pages from D.C. Statutes 21-154.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 13486.51it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 27 splits.
+
+MI SB 438.pdf
+checking if MI SB 438.pdf is accessible in database...
+loading pages from MI SB 438.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 28170.70it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 195 splits.
+
+MI SB 213.pdf
+checking if MI SB 213.pdf is accessible in database...
+loading pages from MI SB 213.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 28403.86it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 240 splits.
+
+MD SB 869.pdf
+checking if MD SB 869.pdf is accessible in database...
+loading pages from MD SB 869.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 26305.74it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+[91m*ERR* --- *ERR*[0m
+[91m*ERR* Table is not square! *ERR*[0m
+[93m*Padding to square...*[0m
+Generated 149 splits.
+failed on MD SB 869
+
+SD HB 1123.pdf
+checking if SD HB 1123.pdf is accessible in database...
+loading pages from SD HB 1123.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 124995.81it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 9 splits.
+failed on SD HB 1123
+
+HI SB 2474.pdf
+checking if HI SB 2474.pdf is accessible in database...
+loading pages from HI SB 2474.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 18659.78it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 12 splits.
+failed on HI SB 2474
+
+ND HB 1506.pdf
+checking if ND HB 1506.pdf is accessible in database...
+loading pages from ND HB 1506.pdf...
+Fetching 9 files:   0%|                                                                                      | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|███████████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 52869.38it/s]
+/blue/daisyw/smaley/.conda/envs/alp/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+Generated 13 splits.
+failed on ND HB 1506
+
+DE S.B. 33 [not yet included].pdf
+SKIPPING DE S.B. 33 [not yet included].pdf, not currently working
+Tue Nov 19 21:16:25 EST 2024
+c0903a-s11.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src

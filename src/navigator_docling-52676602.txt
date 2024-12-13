@@ -1,0 +1,46 @@
+Fri Dec 13 10:51:08 EST 2024
+c0801a-s11.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:20: LangChainDeprecationWarning: Importing FAISS from langchain.vectorstores is deprecated. Please replace deprecated imports:
+
+>> from langchain.vectorstores import FAISS
+
+with new imports of:
+
+>> from langchain_community.vectorstores import FAISS
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores import FAISS
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain/chat_models/__init__.py:33: LangChainDeprecationWarning: Importing chat models from langchain is deprecated. Importing from langchain will no longer be supported as of langchain==0.2.0. Please import from langchain-community instead:
+
+`from langchain_community.chat_models import ChatOpenAI`.
+
+To install langchain-community run `pip install -U langchain-community`.
+  warnings.warn(
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain/chat_models/__init__.py:33: LangChainDeprecationWarning: Importing chat models from langchain is deprecated. Importing from langchain will no longer be supported as of langchain==0.2.0. Please import from langchain-community instead:
+
+`from langchain_community.chat_models import ChatOpenAI`.
+
+To install langchain-community run `pip install -U langchain-community`.
+  warnings.warn(
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:137: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['question'] = row[0]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:138: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['type'] = row[1]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:139: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['tags'] = row[2]
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:140: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  query_dict['id'] = int(row[3])
+/blue/rcstudents/smaley/alp/ALP_updated/src/navigator_docling.py:201: LangChainDeprecationWarning: The class `ChatOpenAI` was deprecated in LangChain 0.0.10 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-openai package and should be used instead. To use it run `pip install -U :class:`~langchain-openai` and import as `from :class:`~langchain_openai import ChatOpenAI``.
+  llm = ChatOpenAI(
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langsmith/client.py:241: LangSmithMissingAPIKeyWarning: API key must be provided when using hosted LangSmith API
+  warnings.warn(
+initilizing...
+
+MD SB 791.pdf
+Fri Dec 13 10:54:15 EST 2024
+c0801a-s11.ufhpc
+/home/smaley/rcstudents_blue/alp/ALP_updated/src

@@ -1,0 +1,432 @@
+Thu Dec 12 14:27:09 EST 2024
+c0800a-s35.ufhpc
+/blue/rcstudents/smaley/alp/ALP_updated/src
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:25: LangChainDeprecationWarning: Importing HuggingFaceEmbeddings from langchain.embeddings is deprecated. Please replace deprecated imports:
+
+>> from langchain.embeddings import HuggingFaceEmbeddings
+
+with new imports of:
+
+>> from langchain_community.embeddings import HuggingFaceEmbeddings
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.embeddings import HuggingFaceEmbeddings
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:26: LangChainDeprecationWarning: Importing FAISS from langchain.vectorstores is deprecated. Please replace deprecated imports:
+
+>> from langchain.vectorstores import FAISS
+
+with new imports of:
+
+>> from langchain_community.vectorstores import FAISS
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores import FAISS
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:86: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(model_name=HF_EMBED_MODEL_ID)
+
+Loading pages from MD SB 791.pdf...
+already queried!
+Generated 199 splits.
+FAISS index saved to ../data/embeddings/MD SB 791
+
+Loading pages from MD SB 516.pdf...
+already queried!
+Generated 319 splits.
+FAISS index saved to ../data/embeddings/MD SB 516
+
+Loading pages from Guam Public Statutes 29-62.pdf...
+already queried!
+Generated 12 splits.
+FAISS index saved to ../data/embeddings/Guam Public Statutes 29-62
+
+Loading pages from Kansas Statutes  66-1256, et seq. 2009.pdf...
+already queried!
+Generated 12 splits.
+FAISS index saved to ../data/embeddings/Kansas Statutes  66-1256, et seq. 2009
+
+Loading pages from OK HB 3028.pdf...
+already queried!
+Generated 18 splits.
+FAISS index saved to ../data/embeddings/OK HB 3028
+
+Loading pages from NC SB 3.pdf...
+already queried!
+Generated 41 splits.
+FAISS index saved to ../data/embeddings/NC SB 3
+
+Loading pages from NM SB 43.pdf...
+ERROR: No splits generated.
+
+Loading pages from RI HB 7413.pdf...
+Generated 17 splits.
+FAISS index saved to ../data/embeddings/RI HB 7413
+
+Loading pages from NJ SB 3723.pdf...
+Generated 160 splits.
+FAISS index saved to ../data/embeddings/NJ SB 3723
+
+Loading pages from Kansas Statutes  66-1256, et seq. 2015.pdf...
+Generated 4 splits.
+FAISS index saved to ../data/embeddings/Kansas Statutes  66-1256, et seq. 2015
+
+Loading pages from WA Initiative 936.pdf...
+Generated 30 splits.
+FAISS index saved to ../data/embeddings/WA Initiative 936
+
+Loading pages from NH Title XXXIV Section 362F.pdf...
+Generated 75 splits.
+FAISS index saved to ../data/embeddings/NH Title XXXIV Section 362F
+
+Loading pages from WA Initiative 937.pdf...
+Generated 242 splits.
+FAISS index saved to ../data/embeddings/WA Initiative 937
+
+Loading pages from UT SB 0202.pdf...
+Generated 198 splits.
+FAISS index saved to ../data/embeddings/UT SB 0202
+
+Loading pages from HI HB 173.pdf...
+Generated 24 splits.
+FAISS index saved to ../data/embeddings/HI HB 173
+
+Loading pages from CO CRS 40-2-124.pdf...
+Generated 72 splits.
+FAISS index saved to ../data/embeddings/CO CRS 40-2-124
+
+Loading pages from DE S.B. 199.pdf...
+Generated 15 splits.
+FAISS index saved to ../data/embeddings/DE S.B. 199
+
+Loading pages from WI State Legislature CH 196 .pdf...
+Generated 43 splits.
+FAISS index saved to ../data/embeddings/WI State Legislature CH 196 
+
+Loading pages from Iowa Code 476.41 et seq..pdf...
+Generated 133 splits.
+FAISS index saved to ../data/embeddings/Iowa Code 476.41 et seq.
+
+Loading pages from RPS Document Key.pdf...
+Generated 4 splits.
+FAISS index saved to ../data/embeddings/RPS Document Key
+
+Loading pages from NV SB 372.pdf...
+Generated 26 splits.
+FAISS index saved to ../data/embeddings/NV SB 372
+
+Loading pages from D.C. Statutes 15-340.pdf...
+ERROR: No splits generated.
+
+Loading pages from MN SF 146.pdf...
+Generated 31 splits.
+FAISS index saved to ../data/embeddings/MN SF 146
+
+Loading pages from OH HB 6.pdf...
+Generated 171 splits.
+FAISS index saved to ../data/embeddings/OH HB 6
+
+Loading pages from NY Public Service Comission Order Adopting a Clean Energy Standard.pdf...
+Generated 396 splits.
+FAISS index saved to ../data/embeddings/NY Public Service Comission Order Adopting a Clean Energy Standard
+
+Loading pages from NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues.pdf...
+Generated 73 splits.
+FAISS index saved to ../data/embeddings/NY Public Service Comission Order Establishing New RPS Goal and Resolving Main Tier Issues
+
+Loading pages from AZ AAC R14-2-1801 et seq..pdf...
+Generated 2029 splits.
+FAISS index saved to ../data/embeddings/AZ AAC R14-2-1801 et seq.
+
+Loading pages from CT HB 7432.pdf...
+Generated 1 splits.
+FAISS index saved to ../data/embeddings/CT HB 7432
+
+Loading pages from MA General Statutes C. 25A S. 11F.pdf...
+Generated 18 splits.
+FAISS index saved to ../data/embeddings/MA General Statutes C. 25A S. 11F
+
+Loading pages from VA Code § 56-585.2.pdf...
+Generated 22 splits.
+FAISS index saved to ../data/embeddings/VA Code § 56-585.2
+
+Loading pages from ME PL C. 447.pdf...
+Generated 61 splits.
+FAISS index saved to ../data/embeddings/ME PL C. 447
+
+Loading pages from RI S 2082.pdf...
+Generated 35 splits.
+FAISS index saved to ../data/embeddings/RI S 2082
+
+Loading pages from NY SB 06599.pdf...
+Generated 106 splits.
+FAISS index saved to ../data/embeddings/NY SB 06599
+
+Loading pages from VT HB 40.pdf...
+Generated 178 splits.
+FAISS index saved to ../data/embeddings/VT HB 40
+
+Loading pages from Tex. Utilities Code Ann. §39.904..pdf...
+Generated 60 splits.
+FAISS index saved to ../data/embeddings/Tex. Utilities Code Ann. §39.904.
+
+Loading pages from CT SB-9.pdf...
+Generated 185 splits.
+FAISS index saved to ../data/embeddings/CT SB-9
+
+Loading pages from MT MCA 69-3-2001 et seq..pdf...
+Generated 38 splits.
+FAISS index saved to ../data/embeddings/MT MCA 69-3-2001 et seq.
+
+Loading pages from ME PL C. 403.pdf...
+Generated 21 splits.
+FAISS index saved to ../data/embeddings/ME PL C. 403
+
+Loading pages from CT HB 733.pdf...
+Generated 130 splits.
+FAISS index saved to ../data/embeddings/CT HB 733
+
+Loading pages from NM Stat. § 62-15-34 et seq..pdf...
+Generated 61 splits.
+FAISS index saved to ../data/embeddings/NM Stat. § 62-15-34 et seq.
+
+Loading pages from NM SB 489.pdf...
+Generated 151 splits.
+FAISS index saved to ../data/embeddings/NM SB 489
+
+Loading pages from IL 20 ILCS 3855.pdf...
+Generated 390 splits.
+FAISS index saved to ../data/embeddings/IL 20 ILCS 3855
+
+Loading pages from IN SB 251.pdf...
+Generated 37 splits.
+FAISS index saved to ../data/embeddings/IN SB 251
+
+Loading pages from ME 1997 PL C. 316.pdf...
+Generated 146 splits.
+FAISS index saved to ../data/embeddings/ME 1997 PL C. 316
+
+Loading pages from CA SB 350.pdf...
+Generated 220 splits.
+FAISS index saved to ../data/embeddings/CA SB 350
+
+Loading pages from SC SB 1189.pdf...
+Generated 82 splits.
+FAISS index saved to ../data/embeddings/SC SB 1189
+
+Loading pages from PR SB 1121.pdf...
+Generated 460 splits.
+FAISS index saved to ../data/embeddings/PR SB 1121
+
+Loading pages from OH SB 221.pdf...
+Generated 219 splits.
+FAISS index saved to ../data/embeddings/OH SB 221
+
+Loading pages from OR SB 1547.pdf...
+Generated 106 splits.
+FAISS index saved to ../data/embeddings/OR SB 1547
+
+Loading pages from MP PL 18-62.pdf...
+Generated 11 splits.
+FAISS index saved to ../data/embeddings/MP PL 18-62
+
+Loading pages from NJ PL 1999 Ch. 23.pdf...
+ERROR: No splits generated.
+
+Loading pages from D.C. Statutes 17-250.pdf...
+Generated 98 splits.
+FAISS index saved to ../data/embeddings/D.C. Statutes 17-250
+
+Loading pages from CO SB 236.pdf...
+Generated 206 splits.
+FAISS index saved to ../data/embeddings/CO SB 236
+
+Loading pages from DE SB 74.pdf...
+Generated 41 splits.
+FAISS index saved to ../data/embeddings/DE SB 74
+
+Loading pages from PA SB 1030.pdf...
+Generated 59 splits.
+FAISS index saved to ../data/embeddings/PA SB 1030
+
+Loading pages from HI HB 623.pdf...
+Generated 16 splits.
+FAISS index saved to ../data/embeddings/HI HB 623
+
+Loading pages from MO R.S. 393.1020 et seq.pdf...
+Generated 20 splits.
+FAISS index saved to ../data/embeddings/MO R.S. 393.1020 et seq
+
+Loading pages from CT HB 5005.pdf...
+Generated 574 splits.
+FAISS index saved to ../data/embeddings/CT HB 5005
+
+Loading pages from NV SB 358 2019.pdf...
+Generated 115 splits.
+FAISS index saved to ../data/embeddings/NV SB 358 2019
+
+Loading pages from MD SB 209.pdf...
+Generated 63 splits.
+FAISS index saved to ../data/embeddings/MD SB 209
+
+Loading pages from D.C. Statutes 22-257.pdf...
+Generated 78 splits.
+FAISS index saved to ../data/embeddings/D.C. Statutes 22-257
+
+Loading pages from VA HB 1451.pdf...
+Generated 59 splits.
+FAISS index saved to ../data/embeddings/VA HB 1451
+
+Loading pages from NV SB 358 2009.pdf...
+Generated 240 splits.
+FAISS index saved to ../data/embeddings/NV SB 358 2009
+
+Loading pages from NJ SB 1925.pdf...
+Generated 167 splits.
+FAISS index saved to ../data/embeddings/NJ SB 1925
+
+Loading pages from MA 310 CMR 7.75.pdf...
+Generated 74 splits.
+FAISS index saved to ../data/embeddings/MA 310 CMR 7.75
+
+Loading pages from USVI Act 7075.pdf...
+Generated 70 splits.
+FAISS index saved to ../data/embeddings/USVI Act 7075
+
+Loading pages from AZ AAC R14-2-1618.pdf...
+Generated 26 splits.
+FAISS index saved to ../data/embeddings/AZ AAC R14-2-1618
+
+Loading pages from CA SB 1078.pdf...
+Generated 51 splits.
+FAISS index saved to ../data/embeddings/CA SB 1078
+
+Loading pages from CA SB 100.pdf...
+Generated 62 splits.
+FAISS index saved to ../data/embeddings/CA SB 100
+
+Loading pages from CA SB X1 2.pdf...
+Generated 198 splits.
+FAISS index saved to ../data/embeddings/CA SB X1 2
+
+Loading pages from OR SB 838.pdf...
+Generated 164 splits.
+FAISS index saved to ../data/embeddings/OR SB 838
+
+Loading pages from CA SB 107.pdf...
+Generated 127 splits.
+FAISS index saved to ../data/embeddings/CA SB 107
+
+Loading pages from NY Public Service Comission Order Approving Renewable Portfolio Standard.pdf...
+Generated 305 splits.
+FAISS index saved to ../data/embeddings/NY Public Service Comission Order Approving Renewable Portfolio Standard
+
+Loading pages from HI HB 1464.pdf...
+Generated 60 splits.
+FAISS index saved to ../data/embeddings/HI HB 1464
+
+Loading pages from WV HB 103.pdf...
+Generated 60 splits.
+FAISS index saved to ../data/embeddings/WV HB 103
+
+Loading pages from NV AB 226.pdf...
+Generated 8 splits.
+FAISS index saved to ../data/embeddings/NV AB 226
+
+Loading pages from PR Act 82-2010.pdf...
+Generated 103 splits.
+FAISS index saved to ../data/embeddings/PR Act 82-2010
+
+Loading pages from MP PL 15-23.pdf...
+Generated 63 splits.
+FAISS index saved to ../data/embeddings/MP PL 15-23
+
+Loading pages from D.C. Statutes 21-154.pdf...
+Generated 28 splits.
+FAISS index saved to ../data/embeddings/D.C. Statutes 21-154
+
+Loading pages from MI SB 438.pdf...
+Generated 195 splits.
+FAISS index saved to ../data/embeddings/MI SB 438
+
+Loading pages from MI SB 213.pdf...
+Generated 1 splits.
+FAISS index saved to ../data/embeddings/MI SB 213
+
+Loading pages from MD SB 869.pdf...
+Generated 128 splits.
+FAISS index saved to ../data/embeddings/MD SB 869
+
+Loading pages from SD HB 1123.pdf...
+Generated 9 splits.
+FAISS index saved to ../data/embeddings/SD HB 1123
+
+Loading pages from HI SB 2474.pdf...
+Generated 12 splits.
+FAISS index saved to ../data/embeddings/HI SB 2474
+
+Loading pages from ND HB 1506.pdf...
+Generated 13 splits.
+FAISS index saved to ../data/embeddings/ND HB 1506
+
+Loading pages from DE S.B. 33 [not yet included].pdf...
+Generated 35 splits.
+FAISS index saved to ../data/embeddings/DE S.B. 33 [not yet included]
+
+Loading pages from AZ AAC R14-2-1618-checkpoint.pdf...
+Traceback (most recent call last):
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling_core/utils/file.py", line 69, in resolve_source_to_stream
+    http_url: AnyHttpUrl = TypeAdapter(AnyHttpUrl).validate_python(source)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/pydantic/type_adapter.py", line 142, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/pydantic/type_adapter.py", line 373, in validate_python
+    return self.validator.validate_python(object, strict=strict, from_attributes=from_attributes, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for url['http','https']
+  Input should be a valid URL, relative URL without a base [type=url_parsing, input_value='../data/Laws/AZ AAC R14-2-1618-checkpoint.pdf', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.8/v/url_parsing
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py", line 75, in <module>
+    docs = loader.load()
+           ^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain_core/document_loaders/base.py", line 31, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py", line 37, in lazy_load
+    dl_doc = self._converter.convert(source).document
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/pydantic/validate_call_decorator.py", line 60, in wrapper_function
+    return validate_call_wrapper(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py", line 96, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling/document_converter.py", line 172, in convert
+    return next(all_res)
+           ^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling/document_converter.py", line 193, in convert_all
+    for conv_res in conv_res_iter:
+                    ^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling/document_converter.py", line 215, in _convert
+    for input_batch in chunkify(
+                       ^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling/utils/utils.py", line 12, in chunkify
+    for first in iterator:  # Take the first element from the iterator
+                 ^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling/datamodel/document.py", line 224, in docs
+    obj = resolve_source_to_stream(item) if isinstance(item, str) else item
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/docling_core/utils/file.py", line 89, in resolve_source_to_stream
+    stream = BytesIO(local_path.read_bytes())
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/Laws/AZ AAC R14-2-1618-checkpoint.pdf'
+Thu Dec 12 15:52:46 EST 2024
+c0800a-s35.ufhpc
+/blue/rcstudents/smaley/alp/ALP_updated/src

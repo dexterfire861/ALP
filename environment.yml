@@ -1,0 +1,15 @@
+name: alp-env
+channels:
+  - bioconda
+  - defaults
+  - conda-forge
+dependencies:
+  - faiss-gpu
+  - langchain
+  - langchain-community
+  - langchain-huggingface
+  - langchain-openai
+  - numpy
+  - pandas
+  - ipykernel
+prefix: /blue/daisyw/smaley/.conda/envs/alp-env

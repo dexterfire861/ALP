@@ -1,0 +1,60 @@
+Thu Dec 12 14:17:03 EST 2024
+c0906a-s29.ufhpc
+/blue/rcstudents/smaley/alp/ALP_updated/src
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:25: LangChainDeprecationWarning: Importing HuggingFaceEmbeddings from langchain.embeddings is deprecated. Please replace deprecated imports:
+
+>> from langchain.embeddings import HuggingFaceEmbeddings
+
+with new imports of:
+
+>> from langchain_community.embeddings import HuggingFaceEmbeddings
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.embeddings import HuggingFaceEmbeddings
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:26: LangChainDeprecationWarning: Importing FAISS from langchain.vectorstores is deprecated. Please replace deprecated imports:
+
+>> from langchain.vectorstores import FAISS
+
+with new imports of:
+
+>> from langchain_community.vectorstores import FAISS
+You can use the langchain cli to **automatically** upgrade many imports. Please see documentation here <https://python.langchain.com/docs/versions/v0_2/>
+  from langchain.vectorstores import FAISS
+/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py:85: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(model_name=HF_EMBED_MODEL_ID)
+Loading pages from MD SB 791.pdf...
+Generated 199 splits.
+FAISS index saved to ../data/embeddings/MD SB 791
+Loading pages from MD SB 516.pdf...
+Generated 319 splits.
+FAISS index saved to ../data/embeddings/MD SB 516
+Loading pages from Guam Public Statutes 29-62.pdf...
+Generated 12 splits.
+FAISS index saved to ../data/embeddings/Guam Public Statutes 29-62
+Loading pages from Kansas Statutes  66-1256, et seq. 2009.pdf...
+Generated 12 splits.
+FAISS index saved to ../data/embeddings/Kansas Statutes  66-1256, et seq. 2009
+Loading pages from OK HB 3028.pdf...
+Generated 18 splits.
+FAISS index saved to ../data/embeddings/OK HB 3028
+Loading pages from NC SB 3.pdf...
+Generated 41 splits.
+FAISS index saved to ../data/embeddings/NC SB 3
+Loading pages from NM SB 43.pdf...
+ERROR: No splits generated.
+Traceback (most recent call last):
+  File "/blue/rcstudents/smaley/alp/ALP_updated/src/generate_embeddings.py", line 87, in <module>
+    vectorstore = FAISS.from_documents(splits, embeddings)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain_core/vectorstores/base.py", line 852, in from_documents
+    return cls.from_texts(texts, embedding, metadatas=metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain_community/vectorstores/faiss.py", line 1042, in from_texts
+    return cls.__from(
+           ^^^^^^^^^^^
+  File "/blue/daisyw/smaley/.conda/envs/alp-env/lib/python3.12/site-packages/langchain_community/vectorstores/faiss.py", line 999, in __from
+    index = faiss.IndexFlatL2(len(embeddings[0]))
+                                  ~~~~~~~~~~^^^
+IndexError: list index out of range
+Thu Dec 12 14:22:42 EST 2024
+c0906a-s29.ufhpc
+/blue/rcstudents/smaley/alp/ALP_updated/src
