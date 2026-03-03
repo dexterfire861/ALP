@@ -1,3 +1,14 @@
+"""
+testing.py — Single-document RAG pipeline for rapid prototyping.
+
+Processes a single PDF (``va-code.pdf``) through the full RAG pipeline to
+quickly test changes to embedding, retrieval, or prompting strategies before
+running the heavier multi-document pipeline in ``main.py``.
+
+Note:
+    Contains a syntax error on line 203 (missing comma) from early development.
+    Use ``main.py`` for production runs.
+"""
 
 import pandas as pd
 import openai

@@ -1,3 +1,18 @@
+"""
+accuracy_check.py — Evaluate LLM responses against ground-truth data.
+
+Reads model output spreadsheets from the results/ directory and computes an
+accuracy score for each question based on its type:
+
+  * **Numerical** (Q6, Q7, Q8): Exact match after regex extraction.
+  * **Dates** (Q5): Exact four-digit year match.
+  * **Binary** (Q11): Exact Yes/No match.
+  * **Categorical** (Q3, Q4, Q10): Levenshtein similarity with penalties for
+    extra or missing items.
+
+Results are written back to Excel files with an appended ``Accuracy`` column.
+"""
+
 import os
 import ast
 import Levenshtein
@@ -32,7 +47,17 @@ import regex as re
 
 
 def compute_accuracy_on_directory(directory):
+    """Walk a directory of result spreadsheets and compute per-row accuracy.
+
+    For each Excel file the function iterates over rows, applies the
+    appropriate accuracy metric for the question type, and writes a new
+    file prefixed with ``accuracy_check_`` containing an ``Accuracy`` column.
+
+    Args:
+        directory: Path to the folder containing model output ``.xlsx`` files.
+    """
     def percent_diff(num1, num2):
+        """Return the symmetric percentage difference between two numbers."""
         return abs(num1 - num2) / ((num1 + num2) / 2)
 
     reldir = directory

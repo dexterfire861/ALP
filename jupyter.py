@@ -1,3 +1,16 @@
+"""
+jupyter.py — Alternative RAG pipeline that iterates over the Laws/ directory.
+
+This script mirrors the core logic of ``main.py`` but was developed for
+interactive use in a Jupyter-style workflow.  It loads PDFs from the ``Laws/``
+directory, builds FAISS embeddings, queries a set of OpenAI-hosted models via
+LiteLLM, and writes results to ``output/``.
+
+Note:
+    This file predates ``main.py`` and does not include Claude or Llama model
+    support.  Use ``main.py`` for the most up-to-date pipeline.
+"""
+
 import pandas as pd
 import openai
 import os
