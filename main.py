@@ -1,3 +1,16 @@
+"""
+main.py — Primary RAG pipeline for renewable energy law analysis.
+
+This script processes PDF legal documents through a Retrieval-Augmented
+Generation (RAG) pipeline. For each document it:
+  1. Loads and splits the PDF into text chunks.
+  2. Generates vector embeddings (OpenAI text-embedding-ada-002).
+  3. Builds a FAISS index for fast similarity search.
+  4. Queries multiple LLMs with retrieved context to answer structured
+     questions about the law.
+  5. Saves per-model results to Excel spreadsheets in the results/ directory.
+"""
+
 import pandas as pd
 import openai
 import os
@@ -13,7 +26,6 @@ from langchain.prompts import ChatPromptTemplate
 import numpy as np
 import faiss
 import ast
-from langchain_community.chat_models import ChatAnthropic
 
 from huggingface_hub import InferenceClient
 import anthropic
@@ -24,7 +36,9 @@ import anthropic
 
 load_dotenv()
 
-# Load API keys and initialize clients
+# ---------------------------------------------------------------------------
+# API keys and client initialization
+# ---------------------------------------------------------------------------
 api_key = os.getenv("UF_API_KEY")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 claude_api_key = os.getenv("CLAUDE_API_KEY")
@@ -38,7 +52,9 @@ base_url = "https://api.ai.it.ufl.edu/v1/"
 
 lite_llm_client = LiteLLM(api_key=api_key, base_url=base_url)
 
-# Load questions from Excel
+# ---------------------------------------------------------------------------
+# Load questions and prompt engineering instructions from Excel
+# ---------------------------------------------------------------------------
 questions_dir = 'Questions.xlsx'
 spreadsheet = pd.read_excel(questions_dir, sheet_name=None)
 prompt_engineering = spreadsheet['Prompt Engineering'].columns[0]
@@ -54,13 +70,25 @@ for _, row in worksheet.iterrows():
     }
     queries.append(query)
 
-# Load ground truth data
+# ---------------------------------------------------------------------------
+# Load ground-truth data and reference mappings
+# ---------------------------------------------------------------------------
 gt_df = pd.read_excel('Database June 20 2022.xlsx', sheet_name='master')
 
 reencoded_credit_multiples = pd.read_excel('reencoded_col_BD_from_database.xlsx')
 technology_mappings = pd.read_excel('technology_mapping.xlsx')
 
 def retrieve_ground_truth_values(df, id, reference_law):
+    """Look up the ground-truth answer for a given question ID and law.
+
+    Args:
+        df: Ground-truth DataFrame (the 'master' sheet).
+        id: Question identifier (int) that determines which column(s) to read.
+        reference_law: The reference law name used to locate the row in *df*.
+
+    Returns:
+        The ground-truth value whose type depends on *id* (str, float, list, or dict).
+    """
     row = df.loc[df['reference law'] == reference_law]
     if id == 3:  # credit multiplier
         str_multiple_list = reencoded_credit_multiples.loc[reencoded_credit_multiples['rps_law'] == reference_law]["credit_multiplier"].iloc[0]
@@ -86,6 +114,9 @@ def retrieve_ground_truth_values(df, id, reference_law):
     else:
         return "QUESTION ID NOT RECOGNIZED"
 
+# ---------------------------------------------------------------------------
+# Model configuration
+# ---------------------------------------------------------------------------
 models = [
     "mixtral-8x7b-instruct",
     "gemma-1.1-7b-it",
@@ -100,13 +131,25 @@ models = [
     "gpt-3.5-turbo"
 ]
 
-# Process PDF files from the directory
+# ---------------------------------------------------------------------------
+# PDF processing and embedding pipeline
+# ---------------------------------------------------------------------------
 pdf_directory = os.path.join(os.getcwd(), 'Laws')
 print(f"Looking for files in: {pdf_directory}")
 
 pdf_files = [f for f in os.listdir(pdf_directory) if f.endswith('.pdf')]
 
 def process_pdf(file_path):
+    """Load a PDF and split it into overlapping text chunks.
+
+    Args:
+        file_path: Absolute path to the PDF file.
+
+    Returns:
+        A tuple ``(documents, splits)`` where *documents* is the raw page list
+        and *splits* are the chunked segments.  Returns ``(None, None)`` on
+        failure.
+    """
     loader = PyPDFLoader(file_path)
     documents = loader.load()
     if not documents:
@@ -123,6 +166,17 @@ def process_pdf(file_path):
     return documents, splits
 
 def generate_embeddings(splits):
+    """Generate vector embeddings for each text chunk.
+
+    Uses the OpenAI ``text-embedding-ada-002`` model via LiteLLM.
+
+    Args:
+        splits: List of LangChain ``Document`` objects (text chunks).
+
+    Returns:
+        List of dicts, each containing ``embedding`` (numpy array),
+        ``metadata``, and ``text`` keys.
+    """
     embeddings = []
     embedding_model = "text-embedding-ada-002"
     try:
@@ -143,6 +197,15 @@ def generate_embeddings(splits):
     return embeddings
     
 def create_faiss_index(embeddings):
+    """Build a FAISS flat-L2 index from pre-computed embeddings.
+
+    Args:
+        embeddings: List of embedding dicts (as returned by
+            :func:`generate_embeddings`).
+
+    Returns:
+        A ``faiss.IndexFlatL2`` populated with the embedding vectors.
+    """
     d = len(embeddings[0]['embedding'])  # Dimension of the embedding vectors
     index = faiss.IndexFlatL2(d)  # Create a FAISS index
     embedding_vectors = np.vstack([emb["embedding"] for emb in embeddings]).astype('float32')
@@ -150,6 +213,20 @@ def create_faiss_index(embeddings):
     return index
 
 def retrieve_documents(query, embeddings, index, top_k=3):
+    """Retrieve the top-k most relevant document chunks for a query.
+
+    Generates an embedding for the query text, performs a nearest-neighbor
+    search on the FAISS index, and returns the matching chunks.
+
+    Args:
+        query: Natural-language question string.
+        embeddings: The full list of embedding dicts.
+        index: A populated FAISS index.
+        top_k: Number of results to return (default 3).
+
+    Returns:
+        List of embedding dicts for the closest matches.
+    """
     try:
         query_text = str(query)
         embedding_result = embedding(model="text-embedding-ada-002", input=query_text)
@@ -166,6 +243,26 @@ def retrieve_documents(query, embeddings, index, top_k=3):
         return []
 
 def process_queries(queries, embeddings, index, model, prompt_engineering, api_key, base_url, file_name):
+    """Run every question against a single LLM and collect results.
+
+    For each query the function:
+      1. Retrieves relevant document chunks via FAISS.
+      2. Sends the question + context to the specified model.
+      3. Records the response alongside the ground-truth value.
+
+    Args:
+        queries: List of question dicts (question, type, tags, id).
+        embeddings: Embedding dicts for the current document.
+        index: FAISS index for the current document.
+        model: Model identifier string.
+        prompt_engineering: System prompt text.
+        api_key: API key for the LLM provider.
+        base_url: Base URL for the LLM API.
+        file_name: PDF file name (used to look up ground truth).
+
+    Returns:
+        List of result dicts ready to be written to a DataFrame.
+    """
     results = []
     for query in queries:
         reference_law = file_name[:-4]
